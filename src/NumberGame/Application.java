@@ -1,6 +1,22 @@
 package NumberGame;
 
+import java.util.*;
+
 public class Application {
+
+    public int[] exchange(int[] puzzle, int[] exchangeNumbers) {
+        int x = exchangeNumbers[0];
+        int y = exchangeNumbers[1];
+        for(int i=0; i<puzzle.length; i++) {
+            if(puzzle[i] == x) {
+                puzzle[i] = y;
+            } else if(puzzle[i] == y) {
+                puzzle[i] = x;
+            }
+        }
+        return puzzle;
+    }
+
     public int[] validateInput(String input) {
         int[] exchangeNumbers = new int[2];
         try {
@@ -21,6 +37,7 @@ public class Application {
         }
         return null;
     }
+
     public int[] getNumbersToSwap() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("교환할 두 숫자를 입력>");
@@ -28,9 +45,11 @@ public class Application {
         int[] exchangeNumbers = validateInput(input);
         return exchangeNumbers;
     }
+
     public void printPuzzle(int[] puzzle) {
         System.out.print(Arrays.toString(puzzle));
     }
+
     public int[] shuffle(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int target = (int) (Math.random() * numbers.length);
@@ -40,6 +59,7 @@ public class Application {
         }
         return numbers;
     }
+
     public static void main(String[] args) {
         Application application = new Application();
 
