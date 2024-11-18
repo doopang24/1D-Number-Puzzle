@@ -1,6 +1,9 @@
 package NumberGame;
 
 public class Application {
+    public void printPuzzle(int[] puzzle) {
+        System.out.print(Arrays.toString(puzzle));
+    }
     public int[] shuffle(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int target = (int) (Math.random() * numbers.length);
