@@ -46,10 +46,6 @@ public class Application {
         return exchangeNumbers;
     }
 
-    public void printPuzzle(int[] puzzle) {
-        System.out.print(Arrays.toString(puzzle));
-    }
-
     public int[] shuffle(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int target = (int) (Math.random() * numbers.length);
@@ -60,18 +56,19 @@ public class Application {
         return numbers;
     }
 
-    public static void main(String[] args) {
-        Application application = new Application();
-
+    public int[] start() {
         System.out.println("간단 숫자 퍼즐");
-        int turn = 1;
-        System.out.println("Turn " + turn);
         int[] numbers = new int[8];
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = i + 1;
         }
-        int[] puzzle = application.shuffle(numbers);
-        application.printPuzzle(puzzle);
+        return shuffle(numbers);
+    }
+
+    public void printStatus(int[] puzzle, int turn) {
+        System.out.println("Turn " + turn);
+        System.out.print(Arrays.toString(puzzle));
+    }
 
     public static void main(String[] args) {
         Application application = new Application();
