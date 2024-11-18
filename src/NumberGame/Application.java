@@ -73,6 +73,19 @@ public class Application {
         int[] puzzle = application.shuffle(numbers);
         application.printPuzzle(puzzle);
 
+    public static void main(String[] args) {
+        Application application = new Application();
+
+        int[] puzzle = application.start();
+        int turn = 1;
+        boolean ascendingOrder = false;
+
+        while (!ascendingOrder) {
+            application.printStatus(puzzle, turn);
+            int[] tmp = puzzle;
+            Arrays.sort(tmp);
+            ascendingOrder = Arrays.equals(puzzle, tmp);
+        }
         int[] exchangeNumbers = application.getNumbersToSwap();
     }
 }
