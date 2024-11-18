@@ -1,6 +1,26 @@
 package NumberGame;
 
 public class Application {
+    public int[] validateInput(String input) {
+        int[] exchangeNumbers = new int[2];
+        try {
+            String[] exchangeInput = input.split(",");
+            for(int i=0; i<exchangeNumbers.length; i++) {
+                exchangeNumbers[i] = Integer.parseInt(exchangeInput[i]);
+            }
+            for(int exchangeNumber : exchangeNumbers) {
+                if(exchangeNumber < 1 || exchangeNumber > 8) {
+                    System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
+                    getNumbersToSwap();
+                }
+            }
+            return exchangeNumbers;
+        } catch (Exception e) {
+            System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
+            getNumbersToSwap();
+        }
+        return null;
+    }
     public int[] getNumbersToSwap() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("교환할 두 숫자를 입력>");
