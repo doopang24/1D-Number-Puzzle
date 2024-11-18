@@ -1,6 +1,13 @@
 package NumberGame;
 
 public class Application {
+    public int[] getNumbersToSwap() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("교환할 두 숫자를 입력>");
+        String input = scanner.next();
+        int[] exchangeNumbers = validateInput(input);
+        return exchangeNumbers;
+    }
     public void printPuzzle(int[] puzzle) {
         System.out.print(Arrays.toString(puzzle));
     }
