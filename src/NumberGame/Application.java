@@ -65,9 +65,13 @@ public class Application {
         return shuffle(numbers);
     }
 
+    public void printClosingMessage(int turn) {
+        System.out.println("축하합니다! " + turn + "턴만에 퍼즐을 완성하셨습니다!");
+    }
+
     public void printStatus(int[] puzzle, int turn) {
         System.out.println("Turn " + turn);
-        System.out.print(Arrays.toString(puzzle));
+        System.out.println(Arrays.toString(puzzle));
     }
 
     public static void main(String[] args) {
@@ -82,7 +86,10 @@ public class Application {
             int[] tmp = puzzle;
             Arrays.sort(tmp);
             ascendingOrder = Arrays.equals(puzzle, tmp);
+            int[] exchangeNumbers = application.getNumbersToSwap();
+            puzzle = application.exchange(puzzle, exchangeNumbers);
+            turn++;
         }
-        int[] exchangeNumbers = application.getNumbersToSwap();
+        application.printClosingMessage(turn);
     }
 }
