@@ -7,10 +7,10 @@ public class Application {
     public int[] exchange(int[] puzzle, int[] exchangeNumbers) {
         int x = exchangeNumbers[0];
         int y = exchangeNumbers[1];
-        for(int i=0; i<puzzle.length; i++) {
-            if(puzzle[i] == x) {
+        for (int i = 0; i < puzzle.length; i++) {
+            if (puzzle[i] == x) {
                 puzzle[i] = y;
-            } else if(puzzle[i] == y) {
+            } else if (puzzle[i] == y) {
                 puzzle[i] = x;
             }
         }
