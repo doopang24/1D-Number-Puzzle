@@ -89,16 +89,16 @@ public class Application {
 
         int[] puzzle = application.start();
         int turn = 1;
-        boolean ascendingOrder = false;
+        boolean isSorted = false;
 
-        while (!ascendingOrder) {
+        while (!isSorted) {
             application.printStatus(puzzle, turn);
-            int[] tmp = puzzle;
-            Arrays.sort(tmp);
-            ascendingOrder = Arrays.equals(puzzle, tmp);
-            int[] exchangeNumbers = application.getNumbersToSwap();
-            puzzle = application.exchange(puzzle, exchangeNumbers);
-            turn++;
+            isSorted = application.isOrdered(puzzle);
+            if (!isSorted) {
+                int[] exchangeNumbers = application.getNumbersToSwap();
+                puzzle = application.exchange(puzzle, exchangeNumbers);
+                turn++;
+            }
         }
         application.printClosingMessage(turn);
     }
