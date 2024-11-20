@@ -27,6 +27,40 @@
 - 교환이 완료된 puzzle 배열을 반환
 
 
+## 코드 설명
+
+### main()
+- 모든 코드의 시작
+- 프로그램의 진입점과 흐름을 관리하는 중앙 메서드
+
+### start()
+- 프로그램 시작 문구 출력
+- 무작위 puzzle 배열 반환
+
+### shuffle(int[] numbers)
+- 정수 배열을 무작위 배열로 섞어주는 메서드
+
+### printStatus(int[] puzzle, int turn)
+- 현재 턴 횟수와 배열 출력
+
+### isOrdered(int[] puzzle)
+- 정수 배열이 오름차순 정렬되었는지 검사하는 메서드
+
+### getNumbersToSwap()
+- 교환할 두 숫자를 입력받는 메서드
+- 올바른 형태의 수를 입력할 때까지 반복해서 입력받음
+
+### validateInput(String input)
+- 입력받은 교환할 두 숫자를 검증하는 메서드
+- 불필요한 띄여쓰기, 숫자 여부, 범위 등을 검사함
+
+### exchange(int[] puzzle, int[] exchangeNumbers)
+- puzzle 속에서 교환할 두 수의 자리를 바꾸는 메서드
+
+### printClosingMessage(int turn)
+- 몇 턴 만에 게임을 끝냈는지 마무리 멘트 출력
+
+
 ## 겪은 문제상황
 
 ### 교환할 두 숫자 사이의 스페이스 한 칸 가능
