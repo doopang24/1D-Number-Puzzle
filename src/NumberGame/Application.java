@@ -17,33 +17,30 @@ public class Application {
         return puzzle;
     }
 
-    public int[] validateInput(String input) {
+    public int[] validateInput(String input) throws IllegalArgumentException {
         int[] exchangeNumbers = new int[2];
-        try {
-            String[] exchangeInput = input.split(",");
-            for(int i=0; i<exchangeNumbers.length; i++) {
-                exchangeNumbers[i] = Integer.parseInt(exchangeInput[i]);
+        String[] exchangeInput = input.split(", |,");
+        for (int i = 0; i < exchangeNumbers.length; i++) {
+            exchangeNumbers[i] = Integer.parseInt(exchangeInput[i]);
+            if (exchangeNumbers[i] < 1 || exchangeNumbers[i] > 8) {
+                throw new IllegalArgumentException();
             }
-            for(int exchangeNumber : exchangeNumbers) {
-                if(exchangeNumber < 1 || exchangeNumber > 8) {
-                    System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
-                    getNumbersToSwap();
-                }
-            }
-            return exchangeNumbers;
-        } catch (Exception e) {
-            System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
-            getNumbersToSwap();
         }
-        return null;
+        return exchangeNumbers;
     }
 
     public int[] getNumbersToSwap() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("교환할 두 숫자를 입력>");
-        String input = scanner.next();
-        int[] exchangeNumbers = validateInput(input);
-        return exchangeNumbers;
+        while (true) {
+            try {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("교환할 두 숫자를 입력>");
+                String input = scanner.nextLine();
+                int[] exchangeNumbers = validateInput(input);
+                return exchangeNumbers;
+            } catch (Exception e) {
+                System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
+            }
+        }
     }
 
     public int[] shuffle(int[] numbers) {
