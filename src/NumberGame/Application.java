@@ -65,6 +65,16 @@ public class Application {
         return shuffle(numbers);
     }
 
+    public boolean isOrdered(int[] puzzle) {
+        int count = 0;
+        for (int i = 0; i < puzzle.length - 1; i++) {
+            if (puzzle[i] < puzzle[i + 1]) {
+                count++;
+            }
+        }
+        return count == puzzle.length - 1;
+    }
+
     public void printClosingMessage(int turn) {
         System.out.println("축하합니다! " + turn + "턴만에 퍼즐을 완성하셨습니다!");
     }
