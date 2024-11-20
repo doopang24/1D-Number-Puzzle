@@ -49,8 +49,8 @@ public class Application {
     public int[] shuffle(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int target = (int) (Math.random() * numbers.length);
-            int tmp = numbers[0];
-            numbers[0] = numbers[target];
+            int tmp = numbers[i];
+            numbers[i] = numbers[target];
             numbers[target] = tmp;
         }
         return numbers;
